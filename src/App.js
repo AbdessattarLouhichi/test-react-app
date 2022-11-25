@@ -16,7 +16,7 @@ function App() {
         <BrowserRouter className="container mt-3">
           <Header/>
           <Routes>
-          <Route path='/' element={<Dashboard/>}/>
+            <Route path='/' element={<Dashboard/>}/>
             <Route path='/register' element={<Register/>}/>
             <Route path='/login' element={<Login/>}/>
             <Route path='/dashboard' element={<Dashboard/>}/>
@@ -24,8 +24,7 @@ function App() {
             <Route path='/addCategory' element={<AddCategory/>}/>
             <Route path='/updateProduct/:id' element={<UpdateProduct/>} />
             <Route path='*' element={<ErrorPage/>}/>
-          </Routes>
-          
+          </Routes>   
         </BrowserRouter>
     </div>
     

@@ -91,7 +91,7 @@ function Dashboard() {
                         state.loading ? 'loading' :   state.products.map((item)=>
                             <tr key={item.id}>
                               <td>#{item.id}</td> 
-                              <td>{item.Product}</td>
+                              <td>{item.Name}</td>
                               <td>{item.Category}</td>
                               <td>{item.Description}</td>
                               <td>{item.Price}</td>

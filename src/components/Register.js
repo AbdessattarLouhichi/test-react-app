@@ -1,6 +1,5 @@
 import React from 'react';
-import {Link, useNavigate} from 'react-router-dom'
-//import { v1 as uuidv1} from 'uuid';
+import {Link, useNavigate} from 'react-router-dom';
 import axios from 'axios';
 import {Formik,Form,Field,ErrorMessage} from 'formik';
 import * as Yup from 'yup'
@@ -8,30 +7,30 @@ import * as Yup from 'yup'
 
 function Register() {
 
-     /* const [data, setData] = useState([{
-                                    firstName :'',
-                                    lastName :'',
-                                    email :'',
-                                    password :''
-                            }]);
-                        }
-      
-       
-  {  const handleChange = (e) =>{
-        setData({...data,
-                id: uuidv1,
-                [e.target.id] :e.target.value
-            
-            })
-        console.log(data)
-        
-    };*/
 
     const navigate = useNavigate();
-  
+    const convertToBase64 = (file) => {
+        return new Promise((resolve, reject) => {
+          const fileReader = new FileReader();
+          fileReader.readAsDataURL(file);
+          fileReader.onload = () => {
+            resolve(fileReader.result);
+          };
+          fileReader.onerror = (error) => {
+            reject(error);
+          };
+        });
+      };
+
+      const handleFileUpload = async (e,setFieldValue)=>{
+        const file = e.target.files[0];
+        const base64 = await convertToBase64(file);
+        setFieldValue('userPhoto', base64)
+        
+      }
 
     const handleUser =  (values)=>{
-        
+        console.log(values.userPhoto)
         axios.post('http://localhost:3000/users',values)
         .then(response =>{
                             console.log(response.data)
@@ -65,7 +64,7 @@ function Register() {
   return (
    
     <div class="row d-flex justify-content-center align-items-center h-50">
-    <div class="col-12 col-md-8 col-lg-6  my-3">
+    <div class="col-12 col-md-8 my-3">
       <div  className="card bg-dark text-white" style={{borderRadius: "1rem"}}>
         <div class="card-body p-5">
           <div className='mb-md-5 mt-md-4 pb-3'>
@@ -79,9 +78,9 @@ function Register() {
                 return(
                 <Form className="row g-3">
                     <div className="col-md-6">
-                    <label htmlFor="firstName" className="form-label">First Name</label>
-                    <Field type="text" className="form-control rounded-pill bg-dark text-white" id="firstName" name="firstName"/>
-                    <ErrorMessage name='firstName' component={'div'} className="text-danger"/>
+                        <label htmlFor="firstName" className="form-label">First Name</label>
+                        <Field type="text" className="form-control rounded-pill bg-dark text-white" id="firstName" name="firstName"/>
+                        <ErrorMessage name='firstName' component={'div'} className="text-danger"/>
                     </div>
                     <div className="col-md-6 ">
                         <label htmlFor="validationServer02" className="form-label">Last Name</label>
@@ -102,6 +101,22 @@ function Register() {
                         <label htmlFor="confPassword" className="">Confirm Password</label>
                         <Field type="password" className="form-control rounded-pill bg-dark text-white" id="confPassword" name="confPassword"/>
                         <ErrorMessage name='confPassword' component={'div'} className="text-danger" />
+                    </div>
+                    <div className="form-group my-4">
+                        <label htmlFor="userPhoto" className="font-weight-bold">Add Photo</label>
+                        <Field name="userPhoto">
+                        {({ form, field }) => {
+                     const { setFieldValue } = form
+                        return (
+                          <input
+                            type="file"
+                             className='form-control-file'
+                              required
+                          onChange={(e) => handleFileUpload(e, setFieldValue)}
+                             />
+                            )
+                          }}
+                        </Field>
                     </div>
                     <div className="text-center d-grid gap-2">
                         <button type="submit" className="btn btn-outline-light btn-lg px-5 rounded-pill"  disabled={!formik.isValid || formik.isSubmitting}>Sign Up</button>

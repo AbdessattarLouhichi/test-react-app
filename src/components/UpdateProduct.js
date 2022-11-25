@@ -11,11 +11,11 @@ function UpdateProduct() {
   const [error, setError] = useState('');
   const [post, setPost] = useState({});
   const [data, setData] = useState([{
-    Product:'',
+    Name:'',
     Category: '',
     Description :'',
-    Price:'',
-    Quantity :''
+    Price:0,
+    Quantity :0
 }]);
 
 useEffect(() => {
@@ -65,7 +65,7 @@ const handleChange = (e)=>{
     
     await axios.put('http://localhost:3000/products/' +id, 
     {
-      Product: data.Product,
+      Name: data.Name,
       Category: data.Category,
       Description :data.Description,
       Price : data.Price,
@@ -90,10 +90,10 @@ const handleChange = (e)=>{
               {/* Product Name input type text*/}
               <div className="form-group">
                 <div className="d-flex justify-content-between mb-2">
-                <label htmlFor="productName" className="font-weight-bold">Product</label>
+                <label htmlFor="Name" className="font-weight-bold">Product</label>
                 <Link to="/dashboard" className=" font-weight-bold text-dark "><i className="fa-solid fa-list-check me-3"></i>List of products</Link>
                 </div>
-                <input type="text" className="form-control" id="Product"  value={data.Product} onChange={handleChange}/>
+                <input type="text" className="form-control" id="Name"  value={data.Name} onChange={handleChange}/>
               </div>
               {/* Product Description input textarea */}
               <div className="form-group my-3">

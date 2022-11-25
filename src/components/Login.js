@@ -21,8 +21,7 @@ function Login() {
     .matches(/[a-zA-Z]/, 'Password can only contain Latin letters.'),
   })
   const navigate = useNavigate();
-  //const [Email, setEmail] = useState('');
-  //const [Password, setPassword] = useState('');
+
   const [warning, setWarning] = useState(false);
 
 
