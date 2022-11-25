@@ -1,0 +1,50 @@
+{
+  "users": [
+    {
+      "firstName": "user1",
+      "lastName": "userLastname1",
+      "inputEmail": "user1@mail.com",
+      "inputPassword": "azertyuiop",
+      "confPassword": "azertyuiop",
+      "id": 1
+    },
+    {
+      "firstName": "user2",
+      "lastName": "userLastname2",
+      "inputEmail": "user2@mail.com",
+      "inputPassword": "azertyuiop",
+      "confPassword": "azertyuiop",
+      "id": 2
+    }
+  ],
+  "products": [
+    {
+      "Product": "produit 1",
+      "Category": "Catégorie 1",
+      "Description": "produit 2022",
+      "Price": "10",
+      "Quantity": "150",
+      "id": 1
+    },
+    {
+      "Product": "produit 2",
+      "Category": "Catégorie 2",
+      "Description": "2eme produit",
+      "Price": "30",
+      "Quantity": "1000",
+      "id": 2
+    }
+  ],
+  "categories": [
+    {
+      "categoryName": "Catégorie 1",
+      "categoryDescription": "1ere catégorie",
+      "id": 1
+    },
+    {
+      "categoryName": "Catégorie 2",
+      "categoryDescription": "2eme catégorie",
+      "id": 2
+    }
+  ]
+}
