@@ -1,12 +1,13 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import {Link, useLocation} from 'react-router-dom';
 import logo from '../inventory.png';
 import 'bootstrap/js/dist/collapse';
 
 
 function Header() {
-   
-let userPhoto = localStorage.getItem('userPhoto');
+    let  location = useLocation()
+    console.log(location.pathname)
+    let userPhoto = localStorage.getItem('userPhoto');
   return (
     <div>
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -41,21 +42,31 @@ let userPhoto = localStorage.getItem('userPhoto');
                         <Link className="nav-link fw-bold" to="/dashboard">Dashboard</Link>
                         </li>
                     </ul>
-                    { /*<!-- Left links -->*/}
+                    <div>
+                    {  (location.pathname ==='/' || location.pathname === '/register' || location.pathname ==='/login' ) ? 
+                        <div className="d-flex align-items-center">
+                            <Link type="button" className="btn btn-info px-3 me-2" to="/login">
+                            Login
+                            </Link>
+                            <Link type="button" className="btn btn-info me-3"  to="/register">
+                            Sign up
+                            </Link>
+                        
+                        </div>
+                     : 
 
-                    <div className="d-flex align-items-center">
-                        <Link type="button" className="btn btn-info px-3 me-2" to="/login">
-                        Login
-                        </Link>
-                        <Link type="button" className="btn btn-info me-3"  to="/register">
-                        Sign up
-                        </Link>
-                    
-                    </div>
-                    
-                        <div>
+                        <div className="d-flex align-items-center">
+                            <input type="search" className="form-control rounded mx-2" placeholder="Search" aria-label="Search" aria-describedby="search-addon"/>
+                            
                             <img src={userPhoto} alt='userPhoto' className='rounded-circle' width={65}/>
                         </div>
+                    
+
+                   }
+                    </div>
+                    
+                    
+                   
                 
                     
                 </div>

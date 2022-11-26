@@ -16,7 +16,7 @@ function App() {
         <BrowserRouter className="container mt-3">
           <Header/>
           <Routes>
-            <Route path='/' element={<Dashboard/>}/>
+            <Route path='/' element={<Login/>}/>
             <Route path='/register' element={<Register/>}/>
             <Route path='/login' element={<Login/>}/>
             <Route path='/dashboard' element={<Dashboard/>}/>
