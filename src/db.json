@@ -1,48 +1,6 @@
 {
   "users": [
     {
-      "firstName": "user1",
-      "lastName": "userLastname1",
-      "inputEmail": "user1@mail.com",
-      "inputPassword": "azertyuiop",
-      "confPassword": "azertyuiop",
-      "id": 1
-    },
-    {
-      "firstName": "user2",
-      "lastName": "userLastname2",
-      "inputEmail": "user2@mail.com",
-      "inputPassword": "azertyuiop",
-      "confPassword": "azertyuiop",
-      "id": 2
-    },
-    {
-      "firstName": "user3",
-      "lastName": "userLastname3",
-      "inputEmail": "user3@gmail.com",
-      "inputPassword": "azertyuiop",
-      "confPassword": "azertyuiop",
-      "id": 3
-    },
-    {
-      "firstName": "user4",
-      "lastName": "userLastname4",
-      "inputEmail": "user4@gmail.com",
-      "inputPassword": "azertyuiop",
-      "confPassword": "azertyuiop",
-      "userPhoto": "C:\\fakepath\\images1.png",
-      "id": 4
-    },
-    {
-      "firstName": "user5",
-      "lastName": "userLastname5",
-      "inputEmail": "user5@mail.com",
-      "inputPassword": "azertyuiop",
-      "confPassword": "azertyuiop",
-      "userPhoto": "C:\\fakepath\\avatar2.png",
-      "id": 5
-    },
-    {
       "firstName": "user6",
       "lastName": "userLastname6",
       "inputEmail": "user6@mail.com",

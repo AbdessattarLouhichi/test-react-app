@@ -23,11 +23,30 @@ function Login() {
   const navigate = useNavigate();
 
   const [warning, setWarning] = useState(false);
+  const [user, setUser] = useState([{
+    id:'',
+    Name:'',
+    lastName: '',
+    Email:'',
+    userPhoto :''
+}]);
 
+
+
+const saveUser = (user) => {
+  console.log(user)
+let[ {id, firstName, lastName,inputEmail,userPhoto }] = user;
+      localStorage.setItem('ID', id);
+      localStorage.setItem('Name', firstName);
+      localStorage.setItem('lastName', lastName);
+      localStorage.setItem('Email', inputEmail);
+      localStorage.setItem('userPhoto', userPhoto);
+}
 
   const onSubmit =  async (values)=>{
     await  axios.get('http://localhost:3000/users')
-        .then(response =>{
+        .then(response =>{ setUser(response.data);
+          saveUser(response.data)
               const Found = response.data.find(user => user.inputEmail === values.Email && user.inputPassword === values.Password)
               if (Found) {
                 warning && setWarning(false)
@@ -72,7 +91,7 @@ function Login() {
                             <ErrorMessage name='Password' component={'div'} className="text-danger"/>
                         </div>
                         <div className="text-center d-grid gap-2">
-                            <button type="submit" className="btn btn-outline-light btn-lg px-5 rounded-pill" disabled={!formik.isValid}>Sign In</button>
+                            <button type="submit" onClick={()=> saveUser(user)} className="btn btn-outline-light btn-lg px-5 rounded-pill" disabled={!formik.isValid}>Sign In</button>
                         </div>
                         <div class="d-flex justify-content-center text-center mt-4 pt-1">
                           <Link to="#!" class="text-white"><i class="fab fa-facebook-f fa-lg"></i></Link>

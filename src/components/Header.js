@@ -2,30 +2,11 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import logo from '../inventory.png';
 import 'bootstrap/js/dist/collapse';
-//import axios from 'axios';
+
 
 function Header() {
-   /* const {id} = useParams();
-    const [user, setUser] = useState([{
-        Name:'',
-        lastName: '',
-        Email:'',
-        userPhoto :''
-    }]);
-
-    useEffect(() => {
    
-        const getData = async () => {
-          
-           await axios.get('http://localhost:3000/users/'+id)
-          .then(res=> {setUser(res.data); console.log(res.data)}
-          )
-          .catch(error => {console.log(error);})
-        };
-      getData();
-     
-      }, [id]);*/
-
+let userPhoto = localStorage.getItem('userPhoto');
   return (
     <div>
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -71,11 +52,11 @@ function Header() {
                         </Link>
                     
                     </div>
-                    {/* 
+                    
                         <div>
-                            <img src={user.Photo} alt='userPhoto' width={75}/>
+                            <img src={userPhoto} alt='userPhoto' className='rounded-circle' width={65}/>
                         </div>
-                    */}
+                
                     
                 </div>
                 {/*<!-- Collapsible wrapper -->*/}
